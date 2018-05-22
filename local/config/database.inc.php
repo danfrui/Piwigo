@@ -1,9 +1,9 @@
 <?php
 $conf['dblayer'] = 'mysql';
-$conf['db_base'] = '2.4.1';
-$conf['db_user'] = 'gotcha';
-$conf['db_password'] = 'xxxxxx';
-$conf['db_host'] = 'localhost';
+$conf['db_base'] = 'testphpdanfrui';
+$conf['db_user'] = 'danfrui@testphpdanfrui-mysqldbserver';
+$conf['db_password'] = 'Ty258yh001!';
+$conf['db_host'] = 'testphpdanfrui-mysqldbserver.mysql.database.azure.com';
  
 $prefixeTable = 'piwigo_';
  
