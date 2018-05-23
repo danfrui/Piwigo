@@ -13,7 +13,7 @@ CREATE TABLE `piwigo_caddie` (
   `user_id` mediumint(8) unsigned NOT NULL default '0',
   `element_id` mediumint(8) NOT NULL default '0',
   PRIMARY KEY  (`user_id`,`element_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_categories`
@@ -41,7 +41,7 @@ CREATE TABLE `piwigo_categories` (
   UNIQUE KEY `categories_i3` (`permalink`),
   KEY `categories_i2` (`id_uppercat`),
   KEY `lastmodified` (`lastmodified`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_comments`
@@ -63,8 +63,7 @@ CREATE TABLE `piwigo_comments` (
   PRIMARY KEY  (`id`),
   KEY `comments_i2` (`validation_date`),
   KEY `comments_i1` (`image_id`)
-) ENGINE=MyISAM;
-
+) ENGINE=Innodb;
 --
 -- Table structure for table `piwigo_config`
 --
@@ -75,7 +74,7 @@ CREATE TABLE `piwigo_config` (
   `value` text,
   `comment` varchar(255) default NULL,
   PRIMARY KEY  (`param`)
-) ENGINE=MyISAM COMMENT='configuration table';
+) ENGINE=Innodb COMMENT='configuration table';
 
 --
 -- Table structure for table `piwigo_favorites`
@@ -86,7 +85,7 @@ CREATE TABLE `piwigo_favorites` (
   `user_id` mediumint(8) unsigned NOT NULL default '0',
   `image_id` mediumint(8) unsigned NOT NULL default '0',
   PRIMARY KEY  (`user_id`,`image_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_group_access`
@@ -97,7 +96,7 @@ CREATE TABLE `piwigo_group_access` (
   `group_id` smallint(5) unsigned NOT NULL default '0',
   `cat_id` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`group_id`,`cat_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_groups`
@@ -112,7 +111,7 @@ CREATE TABLE `piwigo_groups` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `groups_ui1` (`name`),
   KEY `lastmodified` (`lastmodified`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_history`
@@ -133,7 +132,7 @@ CREATE TABLE `piwigo_history` (
   `format_id` int(11) unsigned default NULL,
   `auth_key_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_history_summary`
@@ -149,7 +148,7 @@ CREATE TABLE `piwigo_history_summary` (
   `history_id_from` int(10) unsigned default NULL,
   `history_id_to` int(10) unsigned default NULL,
   UNIQUE KEY history_summary_ymdh (`year`,`month`,`day`,`hour`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_image_category`
@@ -162,7 +161,7 @@ CREATE TABLE `piwigo_image_category` (
   `rank` mediumint(8) unsigned default NULL,
   PRIMARY KEY  (`image_id`,`category_id`),
   KEY `image_category_i1` (`category_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_image_format`
@@ -175,7 +174,7 @@ CREATE TABLE `piwigo_image_format` (
   `ext` varchar(255) NOT NULL,
   `filesize` mediumint(9) unsigned DEFAULT NULL,
   PRIMARY KEY  (`format_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_image_tag`
@@ -187,7 +186,7 @@ CREATE TABLE `piwigo_image_tag` (
   `tag_id` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`image_id`,`tag_id`),
   KEY `image_tag_i1` (`tag_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_images`
@@ -227,7 +226,7 @@ CREATE TABLE `piwigo_images` (
   KEY `images_i1` (`storage_category_id`),
   KEY `images_i6` (`latitude`),
   KEY `lastmodified` (`lastmodified`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_languages`
@@ -239,7 +238,7 @@ CREATE TABLE `piwigo_languages` (
   `version` varchar(64) NOT NULL default '0',
   `name` varchar(64) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_old_permalinks`
@@ -253,7 +252,7 @@ CREATE TABLE `piwigo_old_permalinks` (
   `last_hit` datetime default NULL,
   `hit` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`permalink`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_plugins`
@@ -265,7 +264,7 @@ CREATE TABLE `piwigo_plugins` (
   `state` enum('inactive','active') NOT NULL default 'inactive',
   `version` varchar(64) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_rate`
@@ -279,7 +278,7 @@ CREATE TABLE `piwigo_rate` (
   `rate` tinyint(2) unsigned NOT NULL default '0',
   `date` date NOT NULL default '1970-01-01',
   PRIMARY KEY  (`element_id`,`user_id`,`anonymous_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_search`
@@ -291,7 +290,7 @@ CREATE TABLE `piwigo_search` (
   `last_seen` date default NULL,
   `rules` text,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_sessions`
@@ -303,7 +302,7 @@ CREATE TABLE `piwigo_sessions` (
   `data` mediumtext NOT NULL,
   `expiration` datetime NOT NULL default '1970-01-01 00:00:00',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_sites`
@@ -315,7 +314,7 @@ CREATE TABLE `piwigo_sites` (
   `galleries_url` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `sites_ui1` (`galleries_url`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_tags`
@@ -330,8 +329,7 @@ CREATE TABLE `piwigo_tags` (
   PRIMARY KEY  (`id`),
   KEY `tags_i1` (`url_name`),
   KEY `lastmodified` (`lastmodified`)
-) ENGINE=MyISAM;
-
+) ENGINE=Innodb;
 --
 -- Table structure for table `piwigo_themes`
 --
@@ -342,7 +340,7 @@ CREATE TABLE `piwigo_themes` (
   `version` varchar(64) NOT NULL default '0',
   `name` varchar(64) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_upgrade`
@@ -354,7 +352,7 @@ CREATE TABLE `piwigo_upgrade` (
   `applied` datetime NOT NULL default '1970-01-01 00:00:00',
   `description` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_user_access`
@@ -365,7 +363,7 @@ CREATE TABLE `piwigo_user_access` (
   `user_id` mediumint(8) unsigned NOT NULL default '0',
   `cat_id` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`user_id`,`cat_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_user_auth_keys`
@@ -380,7 +378,7 @@ CREATE TABLE `piwigo_user_auth_keys` (
   `duration` int(11) unsigned DEFAULT NULL,
   `expired_on` datetime NOT NULL,
   PRIMARY KEY (`auth_key_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_user_cache`
@@ -399,7 +397,7 @@ CREATE TABLE `piwigo_user_cache` (
   `image_access_type` enum('NOT IN','IN') NOT NULL default 'NOT IN',
   `image_access_list` mediumtext default NULL,
   PRIMARY KEY  (`user_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_user_cache_categories`
@@ -417,7 +415,7 @@ CREATE TABLE `piwigo_user_cache_categories` (
   `count_categories` mediumint(8) unsigned default '0',
   `user_representative_picture_id` mediumint(8) unsigned default NULL,
   PRIMARY KEY  (`user_id`,`cat_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_user_feed`
@@ -429,7 +427,7 @@ CREATE TABLE `piwigo_user_feed` (
   `user_id` mediumint(8) unsigned NOT NULL default '0',
   `last_check` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_user_group`
@@ -440,7 +438,7 @@ CREATE TABLE `piwigo_user_group` (
   `user_id` mediumint(8) unsigned NOT NULL default '0',
   `group_id` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`group_id`,`user_id`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_user_infos`
@@ -467,7 +465,7 @@ CREATE TABLE `piwigo_user_infos` (
   `lastmodified` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   KEY `lastmodified` (`lastmodified`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_user_mail_notification`
@@ -481,7 +479,7 @@ CREATE TABLE `piwigo_user_mail_notification` (
   `last_send` datetime default NULL,
   PRIMARY KEY  (`user_id`),
   UNIQUE KEY `user_mail_notification_ui1` (`check_key`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
 
 --
 -- Table structure for table `piwigo_users`
@@ -495,4 +493,4 @@ CREATE TABLE `piwigo_users` (
   `mail_address` varchar(255) default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `users_ui1` (`username`)
-) ENGINE=MyISAM;
+) ENGINE=Innodb;
